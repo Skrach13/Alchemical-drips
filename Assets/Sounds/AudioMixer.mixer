@@ -28,13 +28,27 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-3001460891559846409
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 124560381fdf77143b3a68534d742ab0
+  m_EffectName: Attenuation
+  m_MixLevel: 8e4d6cdd224f31346bb7cb0b57493a22
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-1663048798437265090
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sound
+  m_Name: Effect
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: a95cbfa613523ca4d80abb5f4ec531d4
   m_Children: []
@@ -43,6 +57,25 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -6256803785089303981}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &-1551072858771967392
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Intarface
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: db30220969b2bd8458529a94f7a45087
+  m_Children: []
+  m_Volume: d0d553a30d0343c4cbc1c8d23b72db89
+  m_Pitch: 9549d6833d9d8164ab1d637cacbf902c
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -3001460891559846409}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -82,17 +115,20 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 118cf0afbe0a25d4faba3bda46215875
+    name: Effect
   - guid: 6d6d19c96ccdb6348bc6b3192a11c1d1
     name: Master
   - guid: 9d75c89d72fa62947b871131b23f4b3c
     name: Music
-  - guid: 118cf0afbe0a25d4faba3bda46215875
-    name: Sound
+  - guid: d0d553a30d0343c4cbc1c8d23b72db89
+    name: Intarface
   m_AudioMixerGroupViews:
   - guids:
     - 5e1d040a207d93b4cae287d8ddb3e474
     - b1f8e11320e1a2e4caf48d346dc599d0
     - a95cbfa613523ca4d80abb5f4ec531d4
+    - db30220969b2bd8458529a94f7a45087
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -108,6 +144,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: -942533121256961815}
   - {fileID: -1663048798437265090}
+  - {fileID: -1551072858771967392}
   m_Volume: 6d6d19c96ccdb6348bc6b3192a11c1d1
   m_Pitch: 0bdb546ca74db1b4e8630ce15c8faa60
   m_Send: 00000000000000000000000000000000
