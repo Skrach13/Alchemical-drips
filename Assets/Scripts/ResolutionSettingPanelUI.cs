@@ -20,10 +20,9 @@ public class ResolutionSettingPanelUI : MonoBehaviour
 
     private void Start()
     {
-        //TODO
-      //  var resolution = SaveManager.Instance.GlobalSave.SettingsDataSave.ScreenResolution;
-       // Screen.SetResolution(resolution.x, resolution.y, true);
-       // SetText(resolution);
+        var resolution = SaveManager.Instance.GlobalSave.SettingsDataSave.ScreenResolution;
+        Screen.SetResolution(resolution.x, resolution.y, true);
+        SetText(resolution);
     }
 
     public void SetNextValue()
@@ -52,6 +51,6 @@ public class ResolutionSettingPanelUI : MonoBehaviour
     {
         Screen.SetResolution(_avaibleResolution[_currentResolutionIndex].x, _avaibleResolution[_currentResolutionIndex].y, true);
         SetText(_avaibleResolution[_currentResolutionIndex]);
-       //TODO SaveManager.Instance.GlobalSave.SettingsDataSave.ScreenResolution = _avaibleResolution[_currentResolutionIndex];
+        SaveManager.Instance.GlobalSave.SettingsDataSave.ScreenResolution = _avaibleResolution[_currentResolutionIndex];
     }
 }

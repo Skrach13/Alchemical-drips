@@ -5,15 +5,15 @@ public class SettingGraphicQualityPanelUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _textQuality;
     private int _currentLevelIndex = 0;
-    public  bool isMinValue { get => _currentLevelIndex == 0; }
-    public  bool isMaxValue { get => _currentLevelIndex == QualitySettings.names.Length - 1; }
+    public bool isMinValue { get => _currentLevelIndex == 0; }
+    public bool isMaxValue { get => _currentLevelIndex == QualitySettings.names.Length - 1; }
 
     private void Start()
     {
-     //   _currentLevelIndex = SaveManager.Instance.GlobalSave.SettingsDataSave.QualityIndex;
+        _currentLevelIndex = SaveManager.Instance.GlobalSave.SettingsDataSave.QualityIndex;
         Apply();
     }
-    public  void SetNextValue()
+    public void SetNextValue()
     {
         if (isMaxValue == false)
         {
@@ -21,7 +21,7 @@ public class SettingGraphicQualityPanelUI : MonoBehaviour
             Apply();
         }
     }
-    public  void SetPreviusValue()
+    public void SetPreviusValue()
     {
         if (isMinValue == false)
         {
@@ -35,10 +35,10 @@ public class SettingGraphicQualityPanelUI : MonoBehaviour
         _textQuality.text = QualitySettings.names[_currentLevelIndex].ToString();
     }
 
-    public  void Apply()
+    public void Apply()
     {
         QualitySettings.SetQualityLevel(_currentLevelIndex);
         SetText();
-     //   SaveManager.Instance.GlobalSave.SettingsDataSave.QualityIndex = _currentLevelIndex;
+        SaveManager.Instance.GlobalSave.SettingsDataSave.QualityIndex = _currentLevelIndex;
     }
 }

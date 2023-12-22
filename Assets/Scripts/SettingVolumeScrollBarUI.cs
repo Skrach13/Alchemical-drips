@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class SettingVolumeScrollBarUI : MonoBehaviour
-{ 
+{
     [SerializeField] private NamePropertiesSoundVolume _nameProperties;
 
     [SerializeField] private AudioMixerGroup _mixerGroup;
@@ -12,15 +12,16 @@ public class SettingVolumeScrollBarUI : MonoBehaviour
 
     [SerializeField] private float _minRealValue;
     [SerializeField] private float _maxRealValue;
-   
+
     [SerializeField] private float _minVirtualValue;
     [SerializeField] private float _maxVirtualValue;
 
     private void Start()
     {
-      //  float value = SaveManager.Instance.GlobalSave.SettingsDataSave.GetValueVolumeSound(_nameProperties);       
-       // _mixerGroup.audioMixer.SetFloat(_mixerGroup.name, value);
-       // _scrollbar.value = Mathf.Lerp(_minVirtualValue, _maxVirtualValue, (value - _minRealValue) / (_maxRealValue - _minRealValue));
+        float value = SaveManager.Instance.GlobalSave.SettingsDataSave.GetValueVolumeSound(_nameProperties);
+        _mixerGroup.audioMixer.SetFloat(_mixerGroup.name, value);
+        float valuescrollbar = Mathf.Lerp(_minVirtualValue, _maxVirtualValue, (value - _minRealValue) / (_maxRealValue - _minRealValue));
+        _scrollbar.value = Mathf.Lerp(0, 1, valuescrollbar / 100);
         _scrollbar.onValueChanged.AddListener(OnChangeValue);
     }
     private void OnDestroy()
@@ -32,8 +33,8 @@ public class SettingVolumeScrollBarUI : MonoBehaviour
     {
         float valueVolumeSound = Mathf.Lerp(_minRealValue, _maxRealValue, value);
         _mixerGroup.audioMixer.SetFloat(_mixerGroup.name, valueVolumeSound);
-      //  SaveManager.Instance.GlobalSave.SettingsDataSave.SetValueVolume(_nameProperties, valueVolumeSound);
-        
-    }    
+        SaveManager.Instance.GlobalSave.SettingsDataSave.SetValueVolume(_nameProperties, valueVolumeSound);
+
+    }
 
 }
