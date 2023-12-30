@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 7457495513329426464}
   - component: {fileID: -3092667757802871343}
   m_Layer: 0
-  m_Name: FruitPref
+  m_Name: BlobPref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
